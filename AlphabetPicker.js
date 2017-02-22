@@ -6,7 +6,7 @@ class LetterPicker extends Component {
 
     render() {
         return (
-            <Text style={{ fontSize: 11, fontWeight: 'bold' }}>
+            <Text style={{ marginVertical: 1, fontSize: 11, fontFamily: 'Chevin-Bold', color: '#53565A' }}>
                 {this.props.letter}
             </Text>
         );
@@ -77,7 +77,7 @@ export default class AlphabetPicker extends Component {
                 ref='alphabetContainer'
                 {...this._panResponder.panHandlers}
                 onLayout={this._onLayout.bind(this)}
-                style={{ paddingHorizontal: 5, backgroundColor: '#fff', borderRadius: 1, justifyContent: 'center' }}>
+                style={{ paddingHorizontal: 10, justifyContent: 'center' }}>
                 <View>
                     {this._letters}
                 </View>
