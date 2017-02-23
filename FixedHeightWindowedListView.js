@@ -182,7 +182,8 @@ export default class FixedHeightWindowedListView extends Component {
       });
 
       // Scroll to the buffer area as soon as setState is complete
-      this.scrollRef.scrollWithoutAnimationTo(startY);
+      // this.scrollRef.scrollWithoutAnimationTo(startY);
+      this.scrollWithoutAnimationTo(startY, 0)
       //  this.scrollRef.scrollTo({x: 0, y: startY, animation: false});
     } else {
       this.nextSectionToScrollTo = sectionId; // Only keep the most recent value
@@ -190,9 +191,8 @@ export default class FixedHeightWindowedListView extends Component {
   }
 
   scrollWithoutAnimationTo(destY, destX) {
-    this.scrollRef &&
-      this.scrollRef.scrollWithoutAnimationTo(destY, destX);
-
+    this.scrollRef && this.scrollRef.scrollTo({x: destX, y: destY, animation: false});
+    // this.scrollRef.scrollWithoutAnimationTo(destY, destX);
   }
 
   // Android requires us to wait a frame between setting the buffer, scrolling
