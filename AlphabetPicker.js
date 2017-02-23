@@ -1,12 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, PanResponder } from 'react-native';
 
+const heightLetterBlock = 16
 
 class LetterPicker extends Component {
 
     render() {
         return (
-            <Text style={{ marginVertical: 1, fontSize: 11, fontFamily: 'Chevin-Bold', color: '#53565A' }}>
+            <Text style={{ 
+              height: heightLetterBlock, 
+              width: 10, 
+              textAlign: 'center', 
+              lineHeight: heightLetterBlock,
+              fontSize: 11, 
+              fontFamily: 'Chevin-Bold', 
+              color: '#53565A' 
+            }}>
                 {this.props.letter}
             </Text>
         );
@@ -56,7 +65,7 @@ export default class AlphabetPicker extends Component {
         let top = y - (this.absContainerTop || 0);
 
         if (top >= 1 && top <= this.containerHeight) {
-            return Alphabet[Math.round((top / this.containerHeight) * Alphabet.length)]
+          return Alphabet[parseInt(top / heightLetterBlock)]
         }
     }
 
@@ -77,7 +86,11 @@ export default class AlphabetPicker extends Component {
                 ref='alphabetContainer'
                 {...this._panResponder.panHandlers}
                 onLayout={this._onLayout.bind(this)}
-                style={{ paddingHorizontal: 10, justifyContent: 'center' }}>
+                style={{ 
+                  marginRight: 10,
+                  height: Alphabet.length * heightLetterBlock,
+                  justifyContent: 'center',
+                }}>
                 <View>
                     {this._letters}
                 </View>

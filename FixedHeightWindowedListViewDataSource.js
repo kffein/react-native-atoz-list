@@ -181,9 +181,9 @@ class FixedHeightListViewDataSource {
    * Public: Find the height between index i and index ii, where i < ii
    */
   getHeightBetweenRows(i, ii) {
-    if (ii < i) {
-      console.warn('provide the lower index first');
-    }
+    // if (ii < i) {
+    //   console.warn('provide the lower index first');
+    // }
 
     return this.getHeightBeforeRow(ii) - this.getHeightBeforeRow(i + 1);
   }
